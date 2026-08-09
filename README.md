@@ -80,10 +80,10 @@ Resultado com a base real:
 
 - Modelo escolhido: Random Forest
 - Acuracia: 0.627
-- Precisao: 0.631
-- Recall: 0.759
-- F1-score: 0.689
-- ROC-AUC: 0.634
+- Precisao: 0.627
+- Recall: 0.778
+- F1-score: 0.694
+- ROC-AUC: 0.631
 
 O modelo treinado esta salvo em:
 
