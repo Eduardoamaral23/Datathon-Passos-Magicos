@@ -13,11 +13,14 @@ OPTIONAL_COLUMNS = ["IAN"]
 # Configuração da página com ícone
 st.set_page_config(page_title="Risco de Defasagem", page_icon="🎓", layout="wide")
 
-# CSS Repaginado: Tema Dark (Black Piano) com Verde Petróleo
+# CSS Repaginado: Identidade Visual Passos Mágicos (Light Theme, Azul, Amarelo e Vermelho)
 st.markdown(
     """
     <style>
     /* Fundo principal e container */
+    .stApp {
+        background-color: #ffffff;
+    }
     .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
@@ -26,16 +29,21 @@ st.markdown(
     
     /* Estilização dos painéis de métricas */
     div[data-testid="stMetric"] {
-        background: #111111; /* Dark/Black piano base */
-        border-left: 5px solid #005f73; /* Destaque verde petróleo */
+        background: #f8f9fa; /* Fundo claro */
+        border-left: 5px solid #2a75d3; /* Azul Passos Mágicos (Banner) */
         border-radius: 8px;
         padding: 16px 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
     div[data-testid="stMetricValue"] {
         font-size: 2.2rem;
-        color: #0a9396; /* Verde petróleo claro */
+        color: #2a75d3; /* Azul Passos Mágicos */
         font-weight: 800;
+    }
+    div[data-testid="stMetricLabel"] {
+        color: #495057;
+        font-weight: 600;
+        font-size: 1.05rem;
     }
     
     /* Etiquetas de Risco */
@@ -50,35 +58,37 @@ st.markdown(
         letter-spacing: 0.5px;
     }
     .risk-low {
-        background: #022c22;
-        color: #34d399;
-        border: 1px solid #34d399;
+        background: #e6f4ea;
+        color: #137333;
+        border: 1px solid #ceead6;
     }
     .risk-medium {
-        background: #451a03;
-        color: #fbbf24;
-        border: 1px solid #fbbf24;
+        background: #fef7e0; 
+        color: #b06000; /* Tom do Amarelo/Laranja das Estrelas */
+        border: 1px solid #feefc3;
     }
     .risk-high {
-        background: #450a0a;
-        color: #f87171;
-        border: 1px solid #f87171;
+        background: #fce8e6; 
+        color: #c5221f; /* Vermelho do Menu */
+        border: 1px solid #fad2cf;
     }
     
     /* Caixa de leitura rápida */
     .quick-read {
-        border-left: 4px solid #005f73;
+        border-left: 5px solid #fdb913; /* Amarelo Estrela Passos Mágicos */
         padding: 16px 20px;
-        background: #1a1a1a;
+        background: #fcfcfc;
         border-radius: 6px;
         line-height: 1.6;
-        color: #e5e7eb;
+        color: #3c4043;
         font-size: 0.95rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        border: 1px solid #f1f3f4;
     }
     
     /* Customização do botão de submit */
     div.stButton > button:first-child {
-        background-color: #005f73;
+        background-color: #2a75d3; /* Azul Passos Mágicos */
         color: white;
         border: none;
         border-radius: 6px;
@@ -88,9 +98,15 @@ st.markdown(
         transition: all 0.3s;
     }
     div.stButton > button:first-child:hover {
-        background-color: #0a9396;
+        background-color: #1c5bb0; /* Azul escuro ao passar o mouse */
         transform: scale(1.02);
-        box-shadow: 0 4px 12px rgba(10, 147, 150, 0.4);
+        box-shadow: 0 4px 12px rgba(42, 117, 211, 0.3);
+        color: white;
+    }
+    
+    /* Ajuste de cor dos textos principais para o tema claro */
+    h1, h2, h3, p, span, label {
+        color: #202124;
     }
     </style>
     """,
