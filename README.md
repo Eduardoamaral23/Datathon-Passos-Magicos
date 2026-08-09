@@ -1,4 +1,4 @@
-# Datathon FIAP - Passos Magicos
+# Datathon | Passos Magicos
 
 Projeto de analytics e machine learning para o case da Associacao Passos Magicos. O objetivo e analisar os indicadores educacionais de 2022 a 2024 e construir uma solucao preditiva para identificar alunos em risco de defasagem.
 
@@ -14,7 +14,7 @@ Projeto de analytics e machine learning para o case da Associacao Passos Magicos
 ## Estrutura
 
 ```text
-Datathon - FIAP/
+Datathon-Passos-Magicos/
   app.py
   requirements.txt
   README.md
@@ -138,13 +138,6 @@ http://localhost:8501
 - `notebooks/modelo_risco_defasagem.ipynb`: notebook da entrega tecnica.
 - `app.py`: aplicacao Streamlit com previsao individual e previsao por arquivo.
 - `models/modelo_risco_defasagem.joblib`: modelo treinado.
-- `Docx/Analise Educacional 2022-2024.docx`: respostas das 11 perguntas.
-- `Docx/Modelo Preditivo de Risco de Defasagem.docx`: rascunho do codigo-base do modelo.
-
-## Pendencias Para Entrega Final
-
-- Executar e salvar o notebook com as saidas.
-- Subir o projeto no GitHub.
-- Publicar o app no Streamlit Community Cloud.
-- Gravar o video de ate 5 minutos.
+- `docx/Analise Educacional 2022-2024.docx`: respostas das 11 perguntas.
+- `docx/Modelo Preditivo de Risco de Defasagem.docx`: rascunho do codigo-base do modelo.
 
