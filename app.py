@@ -13,13 +13,13 @@ OPTIONAL_COLUMNS = ["IAN"]
 # Configuração da página com ícone
 st.set_page_config(page_title="Risco de Defasagem", page_icon="🎓", layout="wide")
 
-# CSS Repaginado: Identidade Visual Passos Mágicos (Light Theme, Azul, Amarelo e Vermelho)
+# CSS Repaginado: Identidade Visual Passos Mágicos (Light Theme Force)
 st.markdown(
     """
     <style>
     /* Fundo principal e container */
     .stApp {
-        background-color: #ffffff;
+        background-color: #ffffff !important;
     }
     .block-container {
         padding-top: 2rem;
@@ -27,23 +27,46 @@ st.markdown(
         max-width: 1280px;
     }
     
+    /* FORÇAR CAIXAS DE TEXTO E SELEÇÃO PARA TEMA CLARO */
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="input"] > div {
+        background-color: #f8f9fa !important;
+        border: 1px solid #ced4da !important;
+        color: #202124 !important;
+    }
+    div[data-baseweb="select"] span,
+    div[data-baseweb="input"] input {
+        color: #202124 !important;
+    }
+    div[data-baseweb="select"] svg {
+        color: #202124 !important;
+    }
+    
+    /* Forçar Expander (Sanfona) para tema claro */
+    button[data-testid="baseButton-header"] {
+        background-color: #f1f3f4 !important;
+    }
+    button[data-testid="baseButton-header"] span {
+        color: #202124 !important;
+    }
+    
     /* Estilização dos painéis de métricas */
     div[data-testid="stMetric"] {
-        background: #f8f9fa; /* Fundo claro */
-        border-left: 5px solid #2a75d3; /* Azul Passos Mágicos (Banner) */
+        background: #f8f9fa !important;
+        border-left: 5px solid #2a75d3 !important;
         border-radius: 8px;
         padding: 16px 20px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
     div[data-testid="stMetricValue"] {
-        font-size: 2.2rem;
-        color: #2a75d3; /* Azul Passos Mágicos */
-        font-weight: 800;
+        font-size: 2.2rem !important;
+        color: #2a75d3 !important;
+        font-weight: 800 !important;
     }
     div[data-testid="stMetricLabel"] {
-        color: #495057;
-        font-weight: 600;
-        font-size: 1.05rem;
+        color: #495057 !important;
+        font-weight: 600 !important;
+        font-size: 1.05rem !important;
     }
     
     /* Etiquetas de Risco */
@@ -58,53 +81,60 @@ st.markdown(
         letter-spacing: 0.5px;
     }
     .risk-low {
-        background: #e6f4ea;
-        color: #137333;
-        border: 1px solid #ceead6;
+        background: #e6f4ea !important;
+        color: #137333 !important;
+        border: 1px solid #ceead6 !important;
     }
     .risk-medium {
-        background: #fef7e0; 
-        color: #b06000; /* Tom do Amarelo/Laranja das Estrelas */
-        border: 1px solid #feefc3;
+        background: #fef7e0 !important; 
+        color: #b06000 !important; 
+        border: 1px solid #feefc3 !important;
     }
     .risk-high {
-        background: #fce8e6; 
-        color: #c5221f; /* Vermelho do Menu */
-        border: 1px solid #fad2cf;
+        background: #fce8e6 !important; 
+        color: #c5221f !important; 
+        border: 1px solid #fad2cf !important;
     }
     
     /* Caixa de leitura rápida */
     .quick-read {
-        border-left: 5px solid #fdb913; /* Amarelo Estrela Passos Mágicos */
-        padding: 16px 20px;
-        background: #fcfcfc;
-        border-radius: 6px;
-        line-height: 1.6;
-        color: #3c4043;
-        font-size: 0.95rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        border: 1px solid #f1f3f4;
+        border-left: 5px solid #fdb913 !important;
+        padding: 16px 20px !important;
+        background: #fcfcfc !important;
+        border-radius: 6px !important;
+        line-height: 1.6 !important;
+        color: #3c4043 !important;
+        font-size: 0.95rem !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
+        border: 1px solid #f1f3f4 !important;
     }
     
-    /* Customização do botão de submit */
-    div.stButton > button:first-child {
-        background-color: #2a75d3; /* Azul Passos Mágicos */
-        color: white;
-        border: none;
-        border-radius: 6px;
-        padding: 10px 24px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        transition: all 0.3s;
-    }
-    div.stButton > button:first-child:hover {
-        background-color: #1c5bb0; /* Azul escuro ao passar o mouse */
-        transform: scale(1.02);
-        box-shadow: 0 4px 12px rgba(42, 117, 211, 0.3);
-        color: white;
+    /* CUSTOMIZAÇÃO GLOBAL DOS BOTÕES (Aplica para todas as abas) */
+    div.stButton > button {
+        background-color: #2a75d3 !important; /* Azul claro e vibrante */
+        border: none !important;
+        border-radius: 6px !important;
+        padding: 10px 24px !important;
+        transition: all 0.3s !important;
     }
     
-    /* Ajuste de cor dos textos principais para o tema claro */
+    /* Força o texto dentro do botão a ficar branco e legível */
+    div.stButton > button, 
+    div.stButton > button p, 
+    div.stButton > button span {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 1.05rem !important;
+    }
+    
+    /* Efeito ao passar o mouse no botão */
+    div.stButton > button:hover {
+        background-color: #1c5bb0 !important; 
+        transform: scale(1.02) !important;
+        box-shadow: 0 4px 12px rgba(42, 117, 211, 0.3) !important;
+    }
+    
+    /* Ajuste de cor dos textos principais */
     h1, h2, h3, p, span, label {
         color: #202124;
     }
